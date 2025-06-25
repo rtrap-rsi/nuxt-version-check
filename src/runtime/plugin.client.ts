@@ -3,7 +3,6 @@ import { defineNuxtPlugin, useRuntimeConfig, useState } from '#app'
 
 export default defineNuxtPlugin((_nuxtApp) => {
   const config = useRuntimeConfig().public.versionChecker
-  const currentVersion = config.currentVersion || 'dev'
 
   const state = useState<RemoteVersionData | null>('versionChecker.data', () => null)
 
@@ -13,7 +12,9 @@ export default defineNuxtPlugin((_nuxtApp) => {
         cache: 'no-store',
       })
 
-      if (data.version && data.version !== currentVersion) {
+      const latestVersion = localStorage.getItem('versionChecker.latestVersion')
+
+      if (data.version && (!latestVersion || data.version !== latestVersion)) {
         state.value = data
         localStorage.setItem('versionChecker.latestVersion', data.version)
       }
