@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v2.1.1
+
+[compare changes](https://github.com/rtrap-rsi/nuxt-version-checker/compare/v2.1.0...v2.1.1)
+
+### 🩹 Fixes
+
+- Update version checking logic to compare with latest stored version ([a9dd517](https://github.com/rtrap-rsi/nuxt-version-checker/commit/a9dd517))
+
+### 🏡 Chore
+
+- **release:** V2.1.0 ([3bdd2bd](https://github.com/rtrap-rsi/nuxt-version-checker/commit/3bdd2bd))
+
+### ❤️ Contributors
+
+- Roberto Trapletti <roberto.trapletti@rsi.ch>
+
 ## v2.1.0
 
 [compare changes](https://github.com/rtrap-rsi/nuxt-version-checker/compare/v2.0.2...v2.1.0)
