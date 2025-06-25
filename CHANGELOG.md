@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v2.1.0
+
+[compare changes](https://github.com/rtrap-rsi/nuxt-version-checker/compare/v2.0.2...v2.1.0)
+
+### 🚀 Enhancements
+
+- Introduce useLatestChangelog composable for enhanced changelog management ([88ae209](https://github.com/rtrap-rsi/nuxt-version-checker/commit/88ae209))
+
+### 🏡 Chore
+
+- **release:** V2.0.2 ([a616324](https://github.com/rtrap-rsi/nuxt-version-checker/commit/a616324))
+
+### ❤️ Contributors
+
+- Roberto Trapletti <roberto.trapletti@rsi.ch>
+
 ## v2.0.2
 
 [compare changes](https://github.com/rtrap-rsi/nuxt-version-checker/compare/v2.0.1...v2.0.2)
