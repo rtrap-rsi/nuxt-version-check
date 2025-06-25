@@ -2,7 +2,7 @@ import type { RemoteVersionData } from '../../types'
 import { computed, useState } from '#imports'
 
 export const useVersionCheck = () => {
-  const data = useState<RemoteVersionData | null>('versionCheck.data')
+  const data = useState<RemoteVersionData | null>('versionChecker.data')
 
   return {
     data,

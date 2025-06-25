@@ -6,7 +6,7 @@ export const useChangelog = () => {
   const seenUrl = ref<string | null>(null)
 
   if (import.meta.client) {
-    seenUrl.value = localStorage.getItem('versionCheck.changelogSeen')
+    seenUrl.value = localStorage.getItem('versionChecker.changelogSeen')
   }
 
   const loadChangelog = async (url: string): Promise<void> => {
@@ -18,11 +18,11 @@ export const useChangelog = () => {
       })
       changelog.value = text
       loadedUrl.value = url
-      localStorage.setItem('versionCheck.changelogSeen', url)
+      localStorage.setItem('versionChecker.changelogSeen', url)
       seenUrl.value = url
     }
     catch (e) {
-      console.warn('[nuxt-version-check] Errore fetch changelog:', e)
+      console.warn('[nuxt-version-checker] Errore fetch changelog:', e)
     }
   }
 

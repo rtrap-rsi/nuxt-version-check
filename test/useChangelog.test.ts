@@ -88,7 +88,7 @@ describe('useChangelog', () => {
     expect(seenUrl.value).toBe(url)
 
     // Verify localStorage was updated
-    expect(localStorageMock.setItem).toHaveBeenCalledWith('versionCheck.changelogSeen', url)
+    expect(localStorageMock.setItem).toHaveBeenCalledWith('versionChecker.changelogSeen', url)
   })
 
   it('should handle fetch errors gracefully', async () => {

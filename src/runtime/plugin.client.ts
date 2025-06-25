@@ -2,10 +2,10 @@ import type { RemoteVersionData } from '../types'
 import { defineNuxtPlugin, useRuntimeConfig, useState } from '#app'
 
 export default defineNuxtPlugin((_nuxtApp) => {
-  const config = useRuntimeConfig().public.versionCheck
+  const config = useRuntimeConfig().public.versionChecker
   const currentVersion = config.currentVersion || 'dev'
 
-  const state = useState<RemoteVersionData | null>('versionCheck.data', () => null)
+  const state = useState<RemoteVersionData | null>('versionChecker.data', () => null)
 
   const checkVersion = async () => {
     try {
@@ -15,11 +15,11 @@ export default defineNuxtPlugin((_nuxtApp) => {
 
       if (data.version && data.version !== currentVersion) {
         state.value = data
-        localStorage.setItem('versionCheck.latestVersion', data.version)
+        localStorage.setItem('versionChecker.latestVersion', data.version)
       }
     }
     catch (err) {
-      console.warn('[nuxt-version-check] Errore fetch versione:', err)
+      console.warn('[nuxt-version-checker] Errore fetch versione:', err)
     }
   }
 

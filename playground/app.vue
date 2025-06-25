@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>Nuxt Version Check Module Playground</h1>
+    <h1>Nuxt Version Checker Module Playground</h1>
 
     <div
       v-if="newVersionAvailable"

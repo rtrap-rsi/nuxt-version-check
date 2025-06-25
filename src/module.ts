@@ -9,8 +9,8 @@ export interface ModuleOptions {
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
-    name: 'nuxt-version-check',
-    configKey: 'versionCheck',
+    name: 'nuxt-version-checker',
+    configKey: 'versionChecker',
   },
   // Default configuration options of the Nuxt module
   defaults: {
@@ -19,7 +19,7 @@ export default defineNuxtModule<ModuleOptions>({
     intervalMs: 5 * 60 * 1000, // 5 minutes
   },
   setup(options, nuxt) {
-    nuxt.options.runtimeConfig.public.versionCheck = options
+    nuxt.options.runtimeConfig.public.versionChecker = options
 
     const resolver = createResolver(import.meta.url)
     addPlugin(resolver.resolve('./runtime/plugin.client'))

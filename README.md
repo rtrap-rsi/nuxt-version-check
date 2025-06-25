@@ -1,4 +1,4 @@
-# 📦 nuxt-version-check
+# 📦 nuxt-version-checker
 
 A minimal Nuxt 3 module that detects if a new version of your app is available and fetches a remote changelog in Markdown format.
 
@@ -21,7 +21,7 @@ A minimal Nuxt 3 module that detects if a new version of your app is available a
 Install the module to your Nuxt application with one command:
 
 ```bash
-npx nuxi module add nuxt-version-check
+npx nuxi module add nuxt-version-checker
 ```
 
 That's it! You can now use nuxt-version-check in your Nuxt app ✨
@@ -32,8 +32,8 @@ Check or add the module configuration in your `nuxt.config.ts`:
 
 ```ts
 export default defineNuxtConfig({
-  modules: ['~/modules/nuxt-version-check'],
-  versionCheck: {
+  modules: ['~/modules/nuxt-version-checker'],
+  versionChecker: {
     currentVersion: '1.2.3',
     versionUrl: '/version.json',
     intervalMs: 5 * 60 * 1000,
