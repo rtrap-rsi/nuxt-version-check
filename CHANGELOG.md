@@ -1,6 +1,24 @@
 # Changelog
 
 
+## v2.0.1
+
+[compare changes](https://github.com/rtrap-rsi/nuxt-version-check/compare/v1.1.1...v2.0.1)
+
+### 🩹 Fixes
+
+- Update package name and version to reflect new release ([4ecdc5e](https://github.com/rtrap-rsi/nuxt-version-check/commit/4ecdc5e))
+
+### 🏡 Chore
+
+- **release:** V1.1.2 ([cf8868c](https://github.com/rtrap-rsi/nuxt-version-check/commit/cf8868c))
+- **release:** V1.1.3 ([489c9bb](https://github.com/rtrap-rsi/nuxt-version-check/commit/489c9bb))
+
+### ❤️ Contributors
+
+- Roberto Trapletti <roberto.trapletti@rsi.ch>
+- Rtrap95 ([@rtrap95](https://github.com/rtrap95))
+
 ## v1.1.3
 
 [compare changes](https://github.com/rtrap-rsi/nuxt-version-check/compare/v1.1.2...v1.1.3)

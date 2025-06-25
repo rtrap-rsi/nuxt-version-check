@@ -1,6 +1,6 @@
 {
   "name": "nuxt-version-checker",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A minimal Nuxt 3 module that detects if a new version of your app is available and fetches a remote changelog in Markdown format.",
   "repository": "rtrap-rsi/nuxt-version-check",
   "license": "MIT",
