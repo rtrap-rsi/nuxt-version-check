@@ -10,7 +10,7 @@ A minimal Nuxt 3 module that detects if a new version of your app is available a
 
 - ✅ Version polling from `/version.json`
 - ✅ Loads Markdown changelog from remote URL
-- ✅ Exposes `useVersionCheck()` and `useChangelog()` composables
+- ✅ Exposes `useLatestChangelog()` composable for easy version checking and changelog loading
 - ✅ Extensible with `forceUpdate`, `releasedAt`, etc.
 - ✅ No dependencies, TypeScript native
 
@@ -65,7 +65,44 @@ export default defineNuxtConfig({
 
 ## 🧠 Usage
 
-### `useVersionCheck()`
+### `useLatestChangelog()`
+
+```ts
+const {
+  changelog,
+  hasNewChangelog,
+  loadChangelog,
+  changelogUrl,
+  seenUrl,
+} = useLatestChangelog()
+```
+
+The `useLatestChangelog()` composable automatically:
+- Detects when a new version is available
+- Checks if the user has seen the latest changelog
+- Loads the changelog content when a new unseen version is detected
+
+### Example
+
+```ts
+const { changelog, hasNewChangelog } = useLatestChangelog()
+
+// The changelog is automatically loaded when a new version is available
+// and the user hasn't seen it yet
+
+// You can use the hasNewChangelog flag to show a notification
+watchEffect(() => {
+  if (hasNewChangelog.value) {
+    // Show notification or modal with changelog.value
+  }
+})
+```
+
+### Advanced Usage
+
+The original composables are still available if you need more control:
+
+#### `useVersionCheck()`
 
 ```ts
 const {
@@ -77,7 +114,7 @@ const {
 } = useVersionCheck()
 ```
 
-### `useChangelog()`
+#### `useChangelog()`
 
 ```ts
 const {
@@ -88,25 +125,6 @@ const {
 } = useChangelog()
 
 await loadChangelog('/changelog/1.2.4.md')
-```
-
-### Example
-
-```ts
-const { newVersionAvailable, changelogUrl } = useVersionCheck()
-const { changelog, loadChangelog, seenUrl } = useChangelog()
-
-watchEffect(async () => {
-  if (
-    process.client &&
-    newVersionAvailable.value &&
-    changelogUrl.value &&
-    changelogUrl.value !== seenUrl.value
-  ) {
-    await loadChangelog(changelogUrl.value)
-    // show changelog.value
-  }
-})
 ```
 
 ---

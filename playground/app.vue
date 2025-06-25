@@ -3,7 +3,7 @@
     <h1>Nuxt Version Checker Module Playground</h1>
 
     <div
-      v-if="newVersionAvailable"
+      v-if="hasNewChangelog || (latestVersion && latestVersion !== currentVersion)"
       class="update-banner"
     >
       <h2>New Version Available: {{ latestVersion }}</h2>
@@ -39,38 +39,37 @@
 
     <div class="debug-info">
       <h3>Debug Information:</h3>
-      <pre>newVersionAvailable: {{ newVersionAvailable }}</pre>
+      <pre>hasNewChangelog: {{ hasNewChangelog }}</pre>
       <pre>latestVersion: {{ latestVersion }}</pre>
       <pre>changelogUrl: {{ changelogUrl }}</pre>
       <pre>forceUpdate: {{ forceUpdate }}</pre>
       <pre>releasedAt: {{ releasedAt }}</pre>
       <pre>seenUrl: {{ seenUrl }}</pre>
-      <pre>loadedUrl: {{ loadedUrl }}</pre>
     </div>
   </div>
 </template>
 
 <script setup>
-import { computed, watchEffect } from 'vue'
+import { computed } from 'vue'
 
 // Get the current version from the module configuration
 const currentVersion = '1.0.0'
 
-// Use the composables from the module
+// Use the new composable from the module
 const {
-  newVersionAvailable,
-  latestVersion,
+  changelog,
+  hasNewChangelog,
+  loadChangelog,
   changelogUrl,
+  seenUrl,
+} = useLatestChangelog()
+
+// For additional information, we can still use useVersionCheck
+const {
+  latestVersion,
   forceUpdate,
   releasedAt,
 } = useVersionCheck()
-
-const {
-  changelog,
-  loadChangelog,
-  seenUrl,
-  loadedUrl,
-} = useChangelog()
 
 // Convert markdown to HTML (simple implementation)
 const renderedChangelog = computed(() => {
@@ -86,18 +85,6 @@ const renderedChangelog = computed(() => {
     .replace(/\*(.*)\*/g, '<em>$1</em>')
     .replace(/- (.*)/g, '<li>$1</li>')
     .replace(/\n/g, '<br>')
-})
-
-// Automatically load changelog when a new version is available
-watchEffect(async () => {
-  if (
-    import.meta.client
-      && newVersionAvailable.value
-      && changelogUrl.value
-      && changelogUrl.value !== seenUrl.value
-  ) {
-    await loadChangelog(changelogUrl.value)
-  }
 })
 
 // Function to manually load the changelog
