@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v2.0.2
+
+[compare changes](https://github.com/rtrap-rsi/nuxt-version-checker/compare/v2.0.1...v2.0.2)
+
+### 🩹 Fixes
+
+- Rename module and update references from 'version-check' to 'version-checker' ([d82fb88](https://github.com/rtrap-rsi/nuxt-version-checker/commit/d82fb88))
+
+### ❤️ Contributors
+
+- Roberto Trapletti <roberto.trapletti@rsi.ch>
+
 ## v2.0.1
 
 [compare changes](https://github.com/rtrap-rsi/nuxt-version-check/compare/v1.1.1...v2.0.1)
